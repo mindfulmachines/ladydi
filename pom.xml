@@ -9,7 +9,7 @@
     <version>0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>Peapod</name>
+    <name>LadyDi</name>
     <description>Feature Generation and Selection for Spark and Scala.</description>
     <url>https://github.com/teachingmachines/ladydi</url>
 
