@@ -58,6 +58,10 @@ class Features {
     featureStages =  stages :: featureStages
   }
 
+  //todo: here we need the option to encoder features individually
+  //todo: or assembled together with VectorAssembler; as you can see
+  //todo: below, currently VectorAssembler is not a choice, it is the
+  //todo: only way.
 
   def pipeline() : Pipeline = {
     val assembler = new VectorAssembler()
