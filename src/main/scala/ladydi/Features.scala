@@ -59,7 +59,6 @@ class Features {
   }
 
 
-
   def pipeline() : Pipeline = {
     val assembler = new VectorAssembler()
       .setInputCols(

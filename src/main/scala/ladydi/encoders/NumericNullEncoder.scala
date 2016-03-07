@@ -9,22 +9,22 @@ import org.apache.spark.sql.types.{DoubleType, DataType}
   */
 
 
-class NullEncoder (override val uid: String)
-  extends UnaryTransformer[java.lang.Double, Double, NullEncoder]  {
+class NumericNullEncoder(override val uid: String)
+  extends UnaryTransformer[java.lang.Double, Double, NumericNullEncoder]  {
 
   def this() = this(Identifiable.randomUID("nullEncoder"))
 
 
   protected def createTransformFunc: java.lang.Double => Double = {
-    NullEncoder.transform
+    NumericNullEncoder.transform
   }
 
    protected def outputDataType: DataType = DoubleType
 }
 
-object NullEncoder {
+object NumericNullEncoder {
 
-  def load(path: String): NullEncoder = new NullEncoder()
+  def load(path: String): NumericNullEncoder = new NumericNullEncoder()
 
   def transform (x: java.lang.Double): Double = {
     if (x == null) -1.0 ; else x
