@@ -1,6 +1,7 @@
+package ladydi
+
 import org.apache.spark.ml.feature.VectorAssembler
 import org.apache.spark.ml.{Pipeline, PipelineStage}
-import org.apache.spark.ml.param.Param
 
 /**
   * Created by zafshar on 3/6/16.
