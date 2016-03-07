@@ -30,6 +30,27 @@ class Features {
     featureStages =  stages :: featureStages
   }
 
+  def add (input : List[String] , stages: List[PipelineStage]): Unit = {
+    val first = stages.head
+    first.set(
+      first.getParam("inputCols"),
+      input.toArray)
+
+    // chaining "stages" in an ML "PipelineStage" together
+    for(s<-stages) {
+      if(s != first) {
+        s.set(
+          s.getParam("inputCol"),
+          input.toString + n)
+      }
+      n += 1
+      s.set(
+        s.getParam("outputCol"),
+        input.toString + n)
+    }
+    featureStages =  stages :: featureStages
+  }
+
   def pipeline() : Pipeline = {
     val assembler = new VectorAssembler()
       .setInputCols(
