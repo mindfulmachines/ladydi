@@ -40,7 +40,7 @@ import org.apache.spark.ml.param._
 /**
   * Trait for shared param regParam.
   */
-private[ml] trait HasRegParam extends Params {
+trait HasRegParam extends Params {
 
   /**
     * Param for regularization parameter (>= 0).
@@ -56,7 +56,7 @@ private[ml] trait HasRegParam extends Params {
 /**
   * Trait for shared param maxIter.
   */
-private[ml] trait HasMaxIter extends Params {
+trait HasMaxIter extends Params {
 
   /**
     * Param for maximum number of iterations (>= 0).
@@ -72,7 +72,7 @@ private[ml] trait HasMaxIter extends Params {
 /**
   * Trait for shared param featuresCol (default: "features").
   */
-private[ml] trait HasFeaturesCol extends Params {
+trait HasFeaturesCol extends Params {
 
   /**
     * Param for features column name.
@@ -90,7 +90,7 @@ private[ml] trait HasFeaturesCol extends Params {
 /**
   * Trait for shared param labelCol (default: "label").
   */
-private[ml] trait HasLabelCol extends Params {
+trait HasLabelCol extends Params {
 
   /**
     * Param for label column name.
@@ -108,7 +108,7 @@ private[ml] trait HasLabelCol extends Params {
 /**
   * Trait for shared param predictionCol (default: "prediction").
   */
-private[ml] trait HasPredictionCol extends Params {
+trait HasPredictionCol extends Params {
 
   /**
     * Param for prediction column name.
@@ -126,7 +126,7 @@ private[ml] trait HasPredictionCol extends Params {
 /**
   * Trait for shared param rawPredictionCol (default: "rawPrediction").
   */
-private[ml] trait HasRawPredictionCol extends Params {
+trait HasRawPredictionCol extends Params {
 
   /**
     * Param for raw prediction (a.k.a. confidence) column name.
@@ -144,7 +144,7 @@ private[ml] trait HasRawPredictionCol extends Params {
 /**
   * Trait for shared param probabilityCol (default: "probability").
   */
-private[ml] trait HasProbabilityCol extends Params {
+trait HasProbabilityCol extends Params {
 
   /**
     * Param for Column name for predicted class conditional probabilities. Note: Not all models output well-calibrated probability estimates! These probabilities should be treated as confidences, not precise probabilities.
@@ -162,7 +162,7 @@ private[ml] trait HasProbabilityCol extends Params {
 /**
   * Trait for shared param threshold (default: 0.5).
   */
-private[ml] trait HasThreshold extends Params {
+ trait HasThreshold extends Params {
 
   /**
     * Param for threshold in binary classification prediction, in range [0, 1].
@@ -180,7 +180,7 @@ private[ml] trait HasThreshold extends Params {
 /**
   * Trait for shared param thresholds.
   */
-private[ml] trait HasThresholds extends Params {
+ trait HasThresholds extends Params {
 
   /**
     * Param for Thresholds in multi-class classification to adjust the probability of predicting each class. Array must have length equal to the number of classes, with values >= 0. The class with largest value p/t is predicted, where p is the original probability of that class and t is the class' threshold..
@@ -196,7 +196,7 @@ private[ml] trait HasThresholds extends Params {
 /**
   * Trait for shared param inputCol.
   */
-private[ml] trait HasInputCol extends Params {
+  trait HasInputCol extends Params {
 
   /**
     * Param for input column name.
@@ -212,7 +212,7 @@ private[ml] trait HasInputCol extends Params {
 /**
   * Trait for shared param inputCols.
   */
-private[ml] trait HasInputCols extends Params {
+ trait HasInputCols extends Params {
 
   /**
     * Param for input column names.
@@ -228,7 +228,7 @@ private[ml] trait HasInputCols extends Params {
 /**
   * Trait for shared param outputCol (default: uid + "_output").
   */
-private[ml] trait HasOutputCol extends Params {
+ trait HasOutputCol extends Params {
 
   /**
     * Param for output column name.
@@ -246,7 +246,7 @@ private[ml] trait HasOutputCol extends Params {
 /**
   * Trait for shared param checkpointInterval.
   */
-private[ml] trait HasCheckpointInterval extends Params {
+ trait HasCheckpointInterval extends Params {
 
   /**
     * Param for set checkpoint interval (>= 1) or disable checkpoint (-1). E.g. 10 means that the cache will get checkpointed every 10 iterations.
@@ -262,7 +262,7 @@ private[ml] trait HasCheckpointInterval extends Params {
 /**
   * Trait for shared param fitIntercept (default: true).
   */
-private[ml] trait HasFitIntercept extends Params {
+trait HasFitIntercept extends Params {
 
   /**
     * Param for whether to fit an intercept term.
@@ -280,7 +280,7 @@ private[ml] trait HasFitIntercept extends Params {
 /**
   * Trait for shared param handleInvalid.
   */
-private[ml] trait HasHandleInvalid extends Params {
+trait HasHandleInvalid extends Params {
 
   /**
     * Param for how to handle invalid entries. Options are skip (which will filter out rows with bad values), or error (which will throw an errror). More options may be added later..
@@ -296,7 +296,7 @@ private[ml] trait HasHandleInvalid extends Params {
 /**
   * Trait for shared param standardization (default: true).
   */
-private[ml] trait HasStandardization extends Params {
+trait HasStandardization extends Params {
 
   /**
     * Param for whether to standardize the training features before fitting the model.
@@ -314,7 +314,7 @@ private[ml] trait HasStandardization extends Params {
 /**
   * Trait for shared param seed (default: this.getClass.getName.hashCode.toLong).
   */
-private[ml] trait HasSeed extends Params {
+trait HasSeed extends Params {
 
   /**
     * Param for random seed.
@@ -332,7 +332,7 @@ private[ml] trait HasSeed extends Params {
 /**
   * Trait for shared param elasticNetParam.
   */
-private[ml] trait HasElasticNetParam extends Params {
+trait HasElasticNetParam extends Params {
 
   /**
     * Param for the ElasticNet mixing parameter, in range [0, 1]. For alpha = 0, the penalty is an L2 penalty. For alpha = 1, it is an L1 penalty.
@@ -348,7 +348,7 @@ private[ml] trait HasElasticNetParam extends Params {
 /**
   * Trait for shared param tol.
   */
-private[ml] trait HasTol extends Params {
+trait HasTol extends Params {
 
   /**
     * Param for the convergence tolerance for iterative algorithms.
@@ -364,7 +364,7 @@ private[ml] trait HasTol extends Params {
 /**
   * Trait for shared param stepSize.
   */
-private[ml] trait HasStepSize extends Params {
+trait HasStepSize extends Params {
 
   /**
     * Param for Step size to be used for each iteration of optimization..
@@ -380,7 +380,7 @@ private[ml] trait HasStepSize extends Params {
 /**
   * Trait for shared param weightCol.
   */
-private[ml] trait HasWeightCol extends Params {
+trait HasWeightCol extends Params {
 
   /**
     * Param for weight column name. If this is not set or empty, we treat all instance weights as 1.0..
@@ -396,7 +396,7 @@ private[ml] trait HasWeightCol extends Params {
 /**
   * Trait for shared param solver (default: "auto").
   */
-private[ml] trait HasSolver extends Params {
+trait HasSolver extends Params {
 
   /**
     * Param for the solver algorithm for optimization. If this is not set or empty, default value is 'auto'..
