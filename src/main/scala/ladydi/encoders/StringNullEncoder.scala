@@ -26,6 +26,6 @@ object StringNullEncoder {
   def load(path: String): StringNullEncoder = new StringNullEncoder()
 
   def transform (x: java.lang.String): String = {
-    if (x == null) "" ; else x
+    if (x == null) "NULL" ; else x
   }
 }
