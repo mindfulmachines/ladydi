@@ -2,7 +2,7 @@ package ladydi.encoders
 
 import org.apache.spark.ml.UnaryTransformer
 import org.apache.spark.ml.util.Identifiable
-import org.apache.spark.sql.types.{StringType, DoubleType, DataType}
+import org.apache.spark.sql.types.{StringType, DataType}
 
 /**
   * Created by zafshar on 3/7/16.

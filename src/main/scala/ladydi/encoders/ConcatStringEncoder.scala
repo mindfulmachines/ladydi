@@ -3,11 +3,9 @@ package ladydi.encoders
 import org.apache.spark.SparkException
 import org.apache.spark.ml.Transformer
 import ladydi.forkedfromspark._
-import org.apache.spark.ml.attribute.{UnresolvedAttribute, AttributeGroup, NumericAttribute, Attribute}
-import org.apache.spark.ml.feature.VectorAssembler
+import org.apache.spark.ml.attribute.{AttributeGroup, Attribute}
 import org.apache.spark.ml.param.ParamMap
-import org.apache.spark.ml.util.{Identifiable}
-import org.apache.spark.mllib.linalg.{Vectors, Vector, VectorUDT}
+import org.apache.spark.ml.util.Identifiable
 import org.apache.spark.sql.{Row, DataFrame}
 import org.apache.spark.sql.functions._
 import org.apache.spark.sql.types._
