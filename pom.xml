@@ -43,14 +43,15 @@
         <url>git@github.com:teachingmachines/ladydi.git</url>
     </scm>
 
+
     <distributionManagement>
         <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+            <id>${distribution.id}</id>
+            <url>${distribution.snapshots}</url>
         </snapshotRepository>
         <repository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <id>${distribution.id}</id>
+            <url>${distribution.releases}/</url>
         </repository>
     </distributionManagement>
 
