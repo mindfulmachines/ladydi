@@ -8,12 +8,12 @@ import org.apache.spark.sql.types.{StringType, DataType}
   * Created by zafshar on 3/7/16.
   */
 class StringNullEncoder (override val uid: String)
-  extends UnaryTransformer[java.lang.String, String, StringNullEncoder]  {
+  extends UnaryTransformer[java.lang.Object, String, StringNullEncoder]  {
 
   def this() = this(Identifiable.randomUID("nullEncoder"))
 
 
-  protected def createTransformFunc: java.lang.String => String = {
+  protected def createTransformFunc: java.lang.Object => String = {
     StringNullEncoder.transform
   }
 
@@ -25,7 +25,7 @@ object StringNullEncoder {
 
   def load(path: String): StringNullEncoder = new StringNullEncoder()
 
-  def transform (x: java.lang.String): String = {
-    if (x == null) "NULL" ; else x
+  def transform (x: java.lang.Object): String = {
+    if (x == null) "NULL" ; else x.toString
   }
 }
