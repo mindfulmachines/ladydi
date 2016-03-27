@@ -34,10 +34,10 @@ class Features {
 // chaining "stages" in an ML "PipelineStage" together
     for(s<-stages) {
       if(s != first) {
-        inputSetter(featureName + n, s )
+        inputSetter("ladydi_" + featureName + n, s )
       }
       n += 1
-      outputSetter(featureName + n, s)
+      outputSetter("ladydi_" +featureName + n, s)
     }
     stages
   }
@@ -53,10 +53,10 @@ class Features {
     // chaining "stages" in an ML "PipelineStage" together
     for (s <- stages) {
       if (s != first) {
-        inputSetter(featureNames.toString + n, s)
+        inputSetter("ladydi_" +featureNames.toString + n, s)
       }
       n += 1
-      outputSetter(featureNames.toString + n, s)
+      outputSetter("ladydi_" +featureNames.toString + n, s)
     }
     stages
   }
