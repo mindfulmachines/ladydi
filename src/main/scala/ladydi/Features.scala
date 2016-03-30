@@ -67,7 +67,7 @@ class Features {
   }
 
 
-  def pipeline(output: String, stages: List[PipelineStage] = Nil) : Pipeline = {
+  def pipeline(output: String, stages: List[PipelineStage], featureSubset: List[String]) : Pipeline = {
     if(stages.isEmpty) {
       val noChain = featureStages.flatten
       outputSetter(output, noChain.last)
@@ -75,6 +75,7 @@ class Features {
     } else {
       val chained = chain(
         featureStages
+          .filter(s => featureSubset.contains(s.head.getOrDefault(s.head.getParam("inputCol")).toString) )
           .map(_.last)
           .map(s => s.getOrDefault(s.getParam("outputCol")).toString)
         , stages
@@ -83,6 +84,15 @@ class Features {
 
       new Pipeline().setStages((featureStages.flatten ::: chained).toArray)
     }
+
+  }
+
+  def pipeline(output: String, stages: List[PipelineStage] = Nil) : Pipeline = {
+    pipeline(
+      output,
+      stages,
+      featureStages.map(s => s.head.getOrDefault(s.head.getParam("inputCol")).toString)
+    )
 
   }
 }
