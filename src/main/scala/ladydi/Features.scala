@@ -1,6 +1,8 @@
 package ladydi
 
-import org.apache.spark.ml.{Pipeline, PipelineStage}
+import org.apache.spark.ml.util.Identifiable
+import org.apache.spark.ml.{PipelineModel, Pipeline, PipelineStage}
+import org.apache.spark.sql.DataFrame
 
 /**
   * Created by zafshar on 3/6/16.
@@ -95,4 +97,21 @@ class Features {
     )
 
   }
+
+  def pipeline() : Pipeline = {
+    val noChain = featureStages.flatten
+    new Pipeline().setStages(noChain.toArray)
+
+  }
+
+  def fit (df : DataFrame): PipelineModel = {
+    val uid = Identifiable.randomUID("pipeline")
+    val transformers = featureStages.flatten
+    featureStages.par.foreach(
+      f => Fitting.fit(df,f.toArray)
+    )
+    new PipelineModel(uid, transformers.toArray)
+  }
+
+
 }
