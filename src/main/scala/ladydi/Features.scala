@@ -1,7 +1,7 @@
 package ladydi
 
 import org.apache.spark.ml.util.Identifiable
-import org.apache.spark.ml.{PipelineModel, Pipeline, PipelineStage}
+import org.apache.spark.ml.{Fitting, PipelineModel, Pipeline, PipelineStage}
 import org.apache.spark.sql.DataFrame
 
 /**
@@ -105,12 +105,7 @@ class Features {
   }
 
   def fit (df : DataFrame): PipelineModel = {
-    val uid = Identifiable.randomUID("pipeline")
-    val transformers = featureStages.flatten
-    featureStages.par.foreach(
-      f => Fitting.fit(df,f.toArray)
-    )
-    new PipelineModel(uid, transformers.toArray)
+    Fitting.fit(df,featureStages)
   }
 
 

@@ -1,9 +1,10 @@
-package ladydi
+package org.apache.spark.ml
 
-import org.apache.spark.ml.{PipelineStage, PipelineModel, Transformer, Estimator}
+import org.apache.spark.ml.util.Identifiable
 import org.apache.spark.sql.DataFrame
 
 import scala.collection.mutable.ListBuffer
+
 
 /**
   * Created by zafshar on 3/30/16.
@@ -21,7 +22,7 @@ object Fitting {
     * @param dataset input dataset
     * @return fitted pipeline
     */
-   def fit(dataset: DataFrame, theStages: Array[PipelineStage]) {
+   def fit(dataset: DataFrame, theStages: Array[PipelineStage]): Array[Transformer] = {
     // Search for the last estimator.
     var indexOfLastEstimator = -1
     theStages.view.zipWithIndex.foreach { case (stage, index) =>
@@ -52,6 +53,14 @@ object Fitting {
         transformers += stage.asInstanceOf[Transformer]
       }
     }
-
+    transformers.toArray
+  }
+  def fit (df : DataFrame, featureStages: List[List[PipelineStage]]): PipelineModel = {
+    val uid = Identifiable.randomUID("pipeline")
+    val transformers =
+      featureStages.par.map(
+        f => Fitting.fit(df,f.toArray)
+      ).flatten.toArray
+    new PipelineModel(uid, transformers)
   }
 }
