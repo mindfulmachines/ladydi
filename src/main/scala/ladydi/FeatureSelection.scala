@@ -49,6 +49,14 @@ object FeatureSelection {
 
   }
 
+  def allFeatures(df: DataFrame, excludedFeatures: List[String] = Nil) = {
+    val featureTypes = types(df)
+
+    numericFeatures(featureTypes, excludedFeatures) :::
+      categoricalFeatures(featureTypes, excludedFeatures) :::
+      textFeatures(featureTypes, excludedFeatures)
+  }
+
 
   def select (n: Int = 1, df: DataFrame, excludedFeatures : List[String] = Nil,
               evaluator: List[String] => Double, p : Int = 1)
@@ -56,11 +64,8 @@ object FeatureSelection {
 
     implicit val ec = ExecutionContext.fromExecutor(Executors.newFixedThreadPool(p))
 
-    val featureTypes = types(df)
+    val features = allFeatures(df,excludedFeatures)
 
-    val features = numericFeatures(featureTypes, excludedFeatures) :::
-      categoricalFeatures(featureTypes, excludedFeatures) :::
-      textFeatures(featureTypes, excludedFeatures)
     var r : List[(Double, List[String])] = Nil
     var best : List[String] = Nil
 
@@ -68,8 +73,6 @@ object FeatureSelection {
     for (i <- 1 to n) {
 
       try {
-
-
 
         val results =
           features
