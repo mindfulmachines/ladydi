@@ -57,15 +57,19 @@ object FeatureSelection {
     implicit val ec = ExecutionContext.fromExecutor(Executors.newFixedThreadPool(p))
 
     val featureTypes = types(df)
+
+    val features = numericFeatures(featureTypes, excludedFeatures) :::
+      categoricalFeatures(featureTypes, excludedFeatures) :::
+      textFeatures(featureTypes, excludedFeatures)
     var r : List[(Double, List[String])] = Nil
     var best : List[String] = Nil
+
+
     for (i <- 1 to n) {
 
       try {
 
-        val features = numericFeatures(featureTypes, excludedFeatures) :::
-          categoricalFeatures(featureTypes, excludedFeatures) :::
-          textFeatures(featureTypes, excludedFeatures)
+
 
         val results =
           features

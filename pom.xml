@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.teachingmachines</groupId>
-    <artifactId>ladydi</artifactId>
+    <artifactId>ladydi_2.11</artifactId>
     <version>0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
