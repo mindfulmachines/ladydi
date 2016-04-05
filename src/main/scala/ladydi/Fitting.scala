@@ -4,6 +4,7 @@ import org.apache.spark.ml.util.Identifiable
 import org.apache.spark.sql.DataFrame
 
 import scala.collection.mutable.ListBuffer
+import scala.collection.parallel.ForkJoinTaskSupport
 
 
 /**
@@ -56,9 +57,9 @@ object Fitting {
     transformers.toArray
   }
   def fit (df : DataFrame, featureStages: List[List[PipelineStage]]): PipelineModel = {
+    df.cache().count()
     val uid = Identifiable.randomUID("pipeline")
-    val transformers =
-      featureStages.par.map(
+    val transformers = featureStages.par.map(
         f => Fitting.fit(df,f.toArray)
       ).flatten.toArray
     new PipelineModel(uid, transformers)
