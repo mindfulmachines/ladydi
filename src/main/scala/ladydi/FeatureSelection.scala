@@ -82,7 +82,17 @@ object FeatureSelection {
               f => {
                 Future({
                   println(f);
-                  evaluator(f)
+
+                  try {
+                    evaluator(f)
+                  }
+
+                  catch {
+                    case w: Exception => println(s"MAJOR WARNING!!!!: The following features $f are MESSED UP!!" +
+                      " I will contintue to run but you may want to check them out!")
+                      10E8
+
+                  }
                 }, f)
               }
             ).map(Await.result(_, Duration.Inf)).sortBy(_._1)
