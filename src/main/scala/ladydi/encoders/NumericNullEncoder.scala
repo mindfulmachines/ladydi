@@ -17,7 +17,7 @@ Long
 
 
   protected def createTransformFunc: java.lang.Number => Vector = {
-    NumericNullEncoder.transform(_,0.01)
+    NumericNullEncoder.transform
   }
 
    protected def outputDataType: DataType = new VectorUDT
@@ -27,7 +27,8 @@ object NumericNullEncoder {
 
   def load(path: String): NumericNullEncoder = new NumericNullEncoder()
 
-  def transform (x: java.lang.Number, min: Double = 0.01): Vector = {
+  def transform (x: java.lang.Number): Vector = {
+    val min: Double = 0.01
     if (x == null || x.doubleValue().isNaN || x.doubleValue().isInfinity) {
       new DenseVector(Array(1.0,-1.0, -1.0)) ;
     }
