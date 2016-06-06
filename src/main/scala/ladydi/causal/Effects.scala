@@ -20,7 +20,7 @@ class Effects {
 
 
   def resolve(default: Map[String, Any], dataFrame: DataFrame): DataFrame = {
-     default.foldLeft(dataFrame.limit(1)) { case (df, (k, v)) =>
+     default.foldLeft(dataFrame) { case (df, (k, v)) =>
       df.withColumn(k, lit(v))
 
     }
