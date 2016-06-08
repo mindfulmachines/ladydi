@@ -4,14 +4,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>io.teachingmachines</groupId>
+    <groupId>io.mindfulmachines</groupId>
     <artifactId>ladydi_2.11</artifactId>
     <version>0.3-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>LadyDi</name>
     <description>Feature Generation and Selection for Spark and Scala.</description>
-    <url>https://github.com/teachingmachines/ladydi</url>
+    <url>https://github.com/mindfulmachines/ladydi</url>
 
     <licenses>
         <license>
