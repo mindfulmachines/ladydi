@@ -24,23 +24,23 @@
     <developers>
         <developer>
             <name>Zoe Afshar</name>
-            <email>zoe@teachingmachines.io</email>
-            <organization>Teaching Machines</organization>
-            <organizationUrl>http://www.teachingmachines.io</organizationUrl>
+            <email>zoe@mindfulmachines.io</email>
+            <organization>Mindful Machines</organization>
+            <organizationUrl>http://www.mindfulmachines.io</organizationUrl>
         </developer>
         <developer>
             <name>Marcin Mejran</name>
-            <email>marcin@teachingmachines.io</email>
-            <organization>Teaching Machines</organization>
-            <organizationUrl>http://www.teachingmachines.io</organizationUrl>
+            <email>marcin@mindfulmachines.io</email>
+            <organization>Mindful Machines</organization>
+            <organizationUrl>http://www.mindfulmachines.io</organizationUrl>
         </developer>
     </developers>
 
 
     <scm>
-        <connection>scm:git:git@github.com:teachingmachines/ladydi.git</connection>
-        <developerConnection>scm:git:git@github.com:teachingmachines/laddydi.git</developerConnection>
-        <url>git@github.com:teachingmachines/ladydi.git</url>
+        <connection>scm:git:git@github.com:mindfulmachines/ladydi.git</connection>
+        <developerConnection>scm:git:git@github.com:mindfulmachines/laddydi.git</developerConnection>
+        <url>git@github.com:mindfulmachines/ladydi.git</url>
     </scm>
 
 
