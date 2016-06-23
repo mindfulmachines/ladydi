@@ -9,7 +9,7 @@ Please let us know what you think and follow our blog [Mindful Machines](http://
 If you're using maven then just add this or clone the repository (and then run mvn install):
 ```xml
 <dependency>
-    <groupId>io.teachingmachines</groupId>
+    <groupId>io.mindfulmachines</groupId>
     <artifactId>ladydi_2.11</artifactId>
     <version>0.3-SNAPSHOT</version>
 </dependency>
