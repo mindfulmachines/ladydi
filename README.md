@@ -1,5 +1,4 @@
-# ladydi
-
+# LadyDi
 
 The goal of LadyDi is to help you Code Less, Build More. It is very easy to use and provides users with clean, automated Feature Generation and Selection for Apache Spark. It can also be used to identify and resolve issues that arise from causal and correlation interactions among features. It is a work in progress and still very much experimental so new versions may introduce breaking changes.
 
