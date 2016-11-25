@@ -1,5 +1,7 @@
 # LadyDi
 
+“It’s ironically all-singing, all-dancing, all-Walkman-wearing Diana who has got her first-class royal act together and proved herself not only the steadier parent, but the better half of our future monarchy.”
+
 The goal of LadyDi is to help you Code Less, Build More. It is very easy to use and provides users with clean, automated Feature Generation and Selection for Apache Spark. It can also be used to identify and resolve issues that arise from causal and correlation interactions among features. It is a work in progress and still very much experimental so new versions may introduce breaking changes.
 
 Please let us know what you think and follow our blog [Mindful Machines](http://www.mindfulmachines.io).
